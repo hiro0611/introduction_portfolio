@@ -1,0 +1,435 @@
+$font-color_default: #777;
+$color_contact: #FFFF66;
+
+$font-size_s: 12px;
+$font-size_m: 14px;
+$font-size_default: 16px;
+$font-size_l: 18px;
+$font-size_xl: 20px;
+$font-size_2l: 25px;
+$font-size_3l: 35px;
+
+$space_s: 5px;
+$space_m: 10px;
+$space_l: 15px;
+$space_xl: 20px;
+
+$site_width: 980px;
+
+$font-family_corp: 'Amatic SC', cursive;
+
+
+$breakpoints: (
+  'sm': 'screen and (max-width: 414px)',
+  'md': 'screen and (max-width: 768px)',
+  'lg': 'screen and (max-width: 1000px)',
+  'xl': 'screen and (max-width: 1200px)',
+) !default;
+
+@mixin mq($breakpoint: md){
+  @media #{map-get($breakpoints, $breakpoint)}{
+    @content;
+  }
+}
+
+//基本設計
+
+html, body{
+  width: 100%;
+  color: $font-color_default;
+  font-size: $font-size_default;
+  line-height: 1.6;
+  font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  text-size-adjust: 100%;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+p, a{
+  -webkit-font-smoothing: antialiased;
+}
+
+a{
+  text-decoration: none;
+  transition: .3s;
+}
+
+a:hover{
+  color: #ffffff;
+  transition: .3s;
+}
+
+//ヘッダー
+
+.header{
+  box-sizing: border-box;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  @include mq(){
+    padding-right: 15px;
+  }
+  &.float-active{
+    transition: .3s;
+    background: #ffffff;
+  }
+}
+
+.title{
+  font-size: $font-size_3l;
+  font-weight: bold;
+  color: #ffffff;
+  margin-left: 20px;
+  font-family: 'Josefin Slab', serif;
+  &.white{
+    color: $font-color_default;
+  }
+}
+
+.nav-menu{
+  display: block;
+  top: 0;
+@include mq(){
+  position: absolute;
+  background: rgba(255, 255, 255, .85);
+  width: 100%;
+  height: 100vh;
+  right: -100%;
+  padding-top: 70px;
+  transition: .5s;
+  &.active{
+  transition: .5s;
+  transform: translateX(-100%);
+  z-index: 2;
+}
+}
+}
+
+.menu{
+  display: flex;
+  align-items: center;
+  &-part{
+    margin-right: $space_xl;
+    font-size: $font-size_l;
+    font-weight: bold;
+  }
+  &-link{
+    color: #ffffff;
+    -webkit-font-smoothing: initial;
+    font-family: 'Josefin Slab', serif;
+    &:hover{
+      border-bottom: 1px solid;
+      @include mq(){
+        border: none;
+      }
+    }
+    &.white{
+      color: $font-color_default;
+    }
+  }
+  @include mq(){
+    display: block;
+    &-part{
+      margin-right: initial;
+      font-size: $font-size_2l;
+    }
+    &-link{
+      -webkit-font-smoothing: initial;
+      display: block;
+      padding: $space_l;
+      text-align: center;
+      color: $font-color_default;
+    }
+  }
+}
+
+//ハンバーガーメニュー
+
+.menu-trigger{
+  display: none;
+  @include mq(){
+    display: inline-block;
+  }
+  transition: all .4s;
+  box-sizing: border-box;
+  position: relative;
+  width: 40px;
+  height: 32px;
+  z-index: 3;
+  span{
+    display: inline-block;
+    transition: all .4s;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: $font-color_default;
+    border-radius: 4px;
+    &:nth-of-type(1){
+      top: 0px;
+    }
+    &:nth-of-type(2){
+      top: 14px;
+    }
+    &:nth-of-type(3){
+      bottom: 0;
+    }
+  }
+  &.active span{
+    &:nth-of-type(1){
+      transform: translateY(12px) rotate(-45deg);
+    }
+    &:nth-of-type(2){
+      opacity: 0;
+    }
+    &:nth-of-type(3){
+      transform: translateY(-15px) rotate(45deg);
+    }
+  }
+}
+
+//トップ画
+
+.center{
+  background-image: url('../images/coffee_img.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-title{
+    font-size: 60px;
+    color: #CBFFD3;
+    &:hover{
+      color: #ffeb99;
+    }
+  }
+}
+
+//メインコンテンツ設計
+
+.container{
+  width: $site-width;
+  @include mq(){
+    width: 100%;
+  }
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 80px;
+  padding-bottom: 120px;
+  &-title{
+    font-size: $font-size_2l;
+    display: block;
+    text-align: center;
+    margin-bottom: 80px;
+    span{
+    border-bottom: 2px solid #777;
+    padding: 10px 0px;
+  }
+    //&:before{
+      //content: '';
+      //position: absolute;
+      //left: 50%;
+      //bottom: -10px;
+      //display: inline-block;
+      //width: 50px;
+      //height: 2px;
+      //background-color: $font-color_default;
+    }
+
+  &-contents{
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    @include mq(){
+      display: block;
+      text-align: center;
+    }
+  }
+  &-sentence{
+    height: 950px;
+    display: flex;
+    align-items: flex-start;
+    margin-left: 100px;
+    line-height: 25px;
+    @include mq(){
+      margin: 0;
+      padding-left: $space_m;
+      padding-right: $space_m;
+    }
+    & p{
+      padding: 20px;
+      background-color: #f7f5dd;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+  }
+  &-skill{
+    display: flex;
+    @include mq(){
+      display: block;
+    }
+    &-part{
+      height: 280px;
+      width: calc(50% - 15px);
+      margin: 10px;
+      border: 5px solid #888888;
+      border-radius: 50px;
+      @include mq(){
+        width: calc(85%);
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+  &-body{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    @include mq(){
+      width: 80%;
+    }
+  }
+}
+
+//NEWSデザイン
+.news{
+  height: 120px;
+  width: 80%;
+  background-color: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-y: scroll;
+  &-part{
+    margin-bottom: 5px;
+    float: left;
+    width: 80%;
+  }
+  :hover{
+    opacity: 0.5;
+    cursor: pointer;
+  }
+}
+
+//サイト背景色
+.background_navy{
+  background-color: #f8f7fc;
+  box-shadow: 0px 0px 8px 2px #ddd inset;
+}
+
+//ABOUT写真
+.photo_me{
+  height: 300px;
+  width: 300px;
+  border-radius: 200px;
+}
+//アニメーション
+.scrollAnime{
+  opacity: 0;
+}
+
+.fadeIndown{
+  animation-name: fadeInDown;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInDown {
+  0% {
+      opacity: 0;         
+  }
+  100% {
+  opacity: 1;
+  transform: translate(0);
+  }
+}
+
+.slide-right{
+  transform: translateX(200px);
+}
+
+.slide-left{
+  transform: translateX(-200px);
+}
+
+//SKILL
+.skill{
+  font-size: $font-size_2l;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: 'Julius Sans One', sans-serif;
+  font-weight: bold;
+  &-font{
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  &-percent{
+    text-align: center;
+    font-size: 3vh;
+  }
+}
+
+.icon{
+  &-yellow{
+    color: #FFFF99;
+  }&-orange{
+    color: #FFCC99;
+  }&-green{
+    color: #00FF99;
+  }
+}
+
+.updown{
+  transform: translateY(100px);
+}
+
+//contact
+.contact{
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: $font-size_l;
+  border-radius: 5px;
+  border: 3px solid #f6f5f4;
+&-form{
+  height: 35px;
+  &:focus{
+    border: 3px solid #FFFFCC;
+  }
+}
+&-comment{
+  height: 200px;
+  margin-bottom: 30px;
+  &:focus{
+    border: 3px solid #FFFFCC;
+  }
+}
+&-button{
+  padding: 10px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  background-color: $color_contact;
+  color: $font-color-default;
+  letter-spacing: 3px;
+  &:hover{
+    transform: translateY(-3px);
+    transition: .3s;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    color: #000;
+  }
+}
+}
+
+.footer{
+  background-color: #f8f7fc;
+  text-align: center;
+  box-shadow: 0px 0px 8px 2px #ddd inset;
+}
