@@ -254,7 +254,7 @@ a:hover{
     }
   }
   &-sentence{
-    height: 950px;
+    height: 1150px;
     display: flex;
     align-items: flex-start;
     margin-left: 100px;
@@ -263,12 +263,17 @@ a:hover{
       margin: 0;
       padding-left: $space_m;
       padding-right: $space_m;
+      height: 100%;
     }
     & p{
       padding: 20px;
       background-color: #f7f5dd;
       border-radius: 5px;
       font-weight: bold;
+      & p2{
+        color: #e8505b;
+        font-size: $font-size_xl;
+      }
     }
   }
   &-skill{
@@ -304,6 +309,8 @@ a:hover{
 .news{
   height: 120px;
   width: 80%;
+  padding: 10px;
+  border-radius: 5px;
   background-color: #ffffff;
   margin-left: auto;
   margin-right: auto;
@@ -327,9 +334,8 @@ a:hover{
 
 //ABOUT写真
 .photo_me{
-  height: 300px;
-  width: 300px;
-  border-radius: 200px;
+  height: 350px;
+  width: 280px;
 }
 //アニメーション
 .scrollAnime{
@@ -390,6 +396,55 @@ a:hover{
 
 .updown{
   transform: translateY(100px);
+}
+
+//portfolio
+
+.portfolio-panel{
+  display: flex;
+  margin-bottom: 40px;
+  @include mq(){
+    display: block;
+  }
+  &-movie{
+    height: 300px;
+    width: 400px;
+    @include mq(){
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    & video{
+      height: 300px;
+      width: 400px;
+      border-radius: 5px;
+      @include mq(){
+        width: 100%;
+      }
+    }
+  }
+  &-explain{
+    padding: 30px;
+    margin-left: 40px;
+    line-height: 30px;
+    font-weight: bold;
+    & h2{
+      font-size: $font-size_2l;
+      background: linear-gradient(transparent 0%, #fff799);
+      display: inline;
+      letter-spacing: $space_s;
+    }
+    & h3{
+      border-bottom: solid #a3f7bf;
+      display: inline;
+    }
+    & a{
+      color: #01a9b4;
+      &:hover{
+        border-bottom: solid 1px #01a9b4;
+      }
+    }
+  }
 }
 
 //contact
