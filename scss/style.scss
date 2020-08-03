@@ -204,6 +204,8 @@ a:hover{
   display: flex;
   justify-content: center;
   align-items: center;
+  @include mq(){
+  }
   &-title{
     font-size: 60px;
     color: #CBFFD3;
@@ -287,8 +289,13 @@ a:hover{
       margin: 10px;
       border: 5px solid #888888;
       border-radius: 50px;
-      @include mq(){
+      margin-left: auto;
+      @media screen and (max-width: 414px){
         width: calc(85%);
+        margin-left: auto;
+        margin-right: auto;
+      }
+      @media screen and (max-width: 768px){
         margin-left: auto;
         margin-right: auto;
       }
@@ -360,6 +367,9 @@ a:hover{
 
 .slide-right{
   transform: translateX(200px);
+  @include mq(){
+    transform: translateY(100px);
+  }
 }
 
 .slide-left{
@@ -380,7 +390,7 @@ a:hover{
   }
   &-percent{
     text-align: center;
-    font-size: 3vh;
+    font-size: 120%;
   }
 }
 
@@ -428,6 +438,9 @@ a:hover{
     margin-left: 40px;
     line-height: 30px;
     font-weight: bold;
+    @include mq(){
+      margin-left: 0;
+    }
     & h2{
       font-size: $font-size_2l;
       background: linear-gradient(transparent 0%, #fff799);

@@ -12,6 +12,7 @@ $(function(){
 
   $('.menu-link').on('click', function(){
     $('.js-toggle-menu').toggleClass('active');
+    $('.js-toggle-humburger').toggleClass('active');
   });
 
   $(window).scroll(function(){

@@ -197,10 +197,15 @@ a:hover {
       width: calc(50% - 15px);
       margin: 10px;
       border: 5px solid #888888;
-      border-radius: 50px; }
-      @media screen and (max-width: 768px) {
+      border-radius: 50px;
+      margin-left: auto; }
+      @media screen and (max-width: 414px) {
         .container-skill-part {
           width: calc(85%);
+          margin-left: auto;
+          margin-right: auto; } }
+      @media screen and (max-width: 768px) {
+        .container-skill-part {
           margin-left: auto;
           margin-right: auto; } }
   .container-body {
@@ -254,6 +259,9 @@ a:hover {
 
 .slide-right {
   transform: translateX(200px); }
+  @media screen and (max-width: 768px) {
+    .slide-right {
+      transform: translateY(100px); } }
 
 .slide-left {
   transform: translateX(-200px); }
@@ -270,7 +278,7 @@ a:hover {
     margin-bottom: 10px; }
   .skill-percent {
     text-align: center;
-    font-size: 3vh; }
+    font-size: 120%; }
 
 .icon-yellow {
   color: #FFFF99; }
@@ -310,6 +318,9 @@ a:hover {
     margin-left: 40px;
     line-height: 30px;
     font-weight: bold; }
+    @media screen and (max-width: 768px) {
+      .portfolio-panel-explain {
+        margin-left: 0; } }
     .portfolio-panel-explain h2 {
       font-size: 25px;
       background: linear-gradient(transparent 0%, #fff799);
