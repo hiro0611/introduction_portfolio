@@ -195,9 +195,9 @@ a:hover{
 //トップ画
 
 .center{
-  background-image: url('../images/coffee_img.jpg');
+  background-image: url('../images/beach_img.jpg');
   background-attachment: fixed;
-  background-position: center;
+  background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
   height: 700px;
@@ -205,6 +205,7 @@ a:hover{
   justify-content: center;
   align-items: center;
   @include mq(){
+    background-attachment: scroll;
   }
   &-title{
     font-size: 60px;
@@ -357,7 +358,7 @@ a:hover{
 
 @keyframes fadeInDown {
   0% {
-      opacity: 0;         
+      opacity: 0;
   }
   100% {
   opacity: 1;
@@ -417,22 +418,35 @@ a:hover{
     display: block;
   }
   &-movie{
-    height: 300px;
-    width: 400px;
+    width: 100%;
+    text-align: center;
     @include mq(){
-      width: 90%;
+      width: 100%;
       margin-left: auto;
       margin-right: auto;
     }
-    & video{
-      height: 300px;
-      width: 400px;
+    & img{
       border-radius: 5px;
+    }
+    &-button{
+      margin-top: 30px;
       @include mq(){
-        width: 100%;
+        margin-bottom: 30px;
+      }
+      & a{
+      padding: 18px;
+      border-radius: 5px;
+      background-color: #b2deec;
+      color: #000;
+      &:hover{
+        background-color: #ffffff;
+        border: solid 1px #b2deec;
+        color: #b2deec;
+        }
       }
     }
   }
+
   &-explain{
     padding: 30px;
     margin-left: 40px;

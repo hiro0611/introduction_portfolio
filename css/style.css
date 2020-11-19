@@ -127,15 +127,18 @@ a:hover {
     transform: translateY(-15px) rotate(45deg); }
 
 .center {
-  background-image: url("../images/coffee_img.jpg");
+  background-image: url("../images/beach_img.jpg");
   background-attachment: fixed;
-  background-position: center;
+  background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
   height: 700px;
   display: flex;
   justify-content: center;
   align-items: center; }
+  @media screen and (max-width: 768px) {
+    .center {
+      background-attachment: scroll; } }
   .center-title {
     font-size: 60px;
     color: #CBFFD3; }
@@ -299,20 +302,29 @@ a:hover {
     .portfolio-panel {
       display: block; } }
   .portfolio-panel-movie {
-    height: 300px;
-    width: 400px; }
+    width: 100%;
+    text-align: center; }
     @media screen and (max-width: 768px) {
       .portfolio-panel-movie {
-        width: 90%;
+        width: 100%;
         margin-left: auto;
         margin-right: auto; } }
-    .portfolio-panel-movie video {
-      height: 300px;
-      width: 400px;
+    .portfolio-panel-movie img {
       border-radius: 5px; }
+    .portfolio-panel-movie-button {
+      margin-top: 30px; }
       @media screen and (max-width: 768px) {
-        .portfolio-panel-movie video {
-          width: 100%; } }
+        .portfolio-panel-movie-button {
+          margin-bottom: 30px; } }
+      .portfolio-panel-movie-button a {
+        padding: 18px;
+        border-radius: 5px;
+        background-color: #b2deec;
+        color: #000; }
+        .portfolio-panel-movie-button a:hover {
+          background-color: #ffffff;
+          border: solid 1px #b2deec;
+          color: #b2deec; }
   .portfolio-panel-explain {
     padding: 30px;
     margin-left: 40px;
